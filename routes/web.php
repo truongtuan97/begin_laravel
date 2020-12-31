@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Article;
+use App\Tag;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $articles = Article::all();
+    $tags = Tag::all();
+    return view('welcome', ['articles' => $articles, 'tags' => $tags]);
 });
 
 Route::resource('tasks', 'TasksController');
