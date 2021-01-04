@@ -23,6 +23,14 @@ class User extends Authenticatable
         return $this->hasOne('App\Profile');
     }
 
+    public function article(){
+        return $this->hasOne('App\Article');
+    }
+
+    public function articles(){
+        return $this->hasMany('App\Article');
+    }
+    
     public function role(){
         return $this->belongsTo('App\Role');
     }
